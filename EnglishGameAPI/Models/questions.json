@@ -1,0 +1,82 @@
+[
+  {
+    "QuestionId": 1,
+    "Type": 1,
+    "Level": 1,
+    "QuestionText": "What is a synonym for 'happy'?",
+    "Options": [ "Sad", "Joyful", "Angry", "Tired" ],
+    "Answer": "Joyful"
+  },
+  {
+    "QuestionId": 2,
+    "Type": 2,
+    "Level": 2,
+    "QuestionText": "What is the antonym of 'hot'?",
+    "Options": [ "Warm", "Cold", "Cool", "Chilly" ],
+    "Answer": "Cold"
+  },
+  {
+    "QuestionId": 3,
+    "Type": 3,
+    "Level": 3,
+    "QuestionText": "The quick brown fox ___ over the lazy dog.",
+    "Options": [ "jumps", "jumped", "jumping", "jump" ],
+    "Answer": "jumped"
+  },
+  {
+    "QuestionId": 4,
+    "Type": 1,
+    "Level": 1,
+    "QuestionText": "What is a synonym for 'big'?",
+    "Options": [ "Small", "Large", "Tiny", "Little" ],
+    "Answer": "Large"
+  },
+  {
+    "QuestionId": 5,
+    "Type": 2,
+    "Level": 2,
+    "QuestionText": "What is the antonym of 'fast'?",
+    "Options": [ "Quick", "Swift", "Slow", "Rapid" ],
+    "Answer": "Slow"
+  },
+  {
+    "QuestionId": 6,
+    "Type": 3,
+    "Level": 3,
+    "QuestionText": "He ___ to the store to buy some milk.",
+    "Options": [ "go", "goes", "went", "going" ],
+    "Answer": "went"
+  },
+  {
+    "QuestionId": 7,
+    "Type": 1,
+    "Level": 1,
+    "QuestionText": "What is a synonym for 'good'?",
+    "Options": [ "Bad", "Excellent", "Terrible", "Worst" ],
+    "Answer": "Excellent"
+  },
+  {
+    "QuestionId": 8,
+    "Type": 2,
+    "Level": 2,
+    "QuestionText": "What is the antonym of 'happy'?",
+    "Options": [ "Sad", "Glad", "Cheerful", "Joyful" ],
+    "Answer": "Sad"
+  },
+  {
+    "QuestionId": 9,
+    "Type": 3,
+    "Level": 3,
+    "QuestionText": "She ___ a beautiful song at the concert.",
+    "Options": [ "sing", "sings", "sang", "singing" ],
+    "Answer": "sang"
+  },
+  {
+    "QuestionId": 10,
+    "Type": 1,
+    "Level": 1,
+    "QuestionText": "What is a synonym for 'old'?",
+    "Options": [ "New", "Young", "Ancient", "Modern" ],
+    "Answer": "Ancient"
+  }
+]
