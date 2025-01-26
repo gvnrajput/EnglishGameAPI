@@ -1,14 +1,14 @@
-using Microsoft.Extensions.Hosting;
+//using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.ConfigureKestrel(serverOptions =>
-{
-    serverOptions.ListenAnyIP(5000); // Replace 5000 with your desired port
-});
-builder.Services.AddWindowsService();
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
+//builder.WebHost.ConfigureKestrel(serverOptions =>
+//{
+//    serverOptions.ListenAnyIP(5000); // Replace 5000 with your desired port
+//});
+//builder.Services.AddWindowsService();
+//builder.Logging.ClearProviders();
+//builder.Logging.AddConsole();
 // Add services to the container.
 
 builder.Services.AddControllers();
