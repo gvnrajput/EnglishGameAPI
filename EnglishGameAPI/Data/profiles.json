@@ -1,0 +1,8 @@
+﻿[
+  {
+    "Username": "player1",
+    "Email": "player1@example.com",
+    "PasswordHash": "hashed_password_here",
+    "LastUpdated": "2023-07-20T12:34:56.789Z"
+  }
+]
