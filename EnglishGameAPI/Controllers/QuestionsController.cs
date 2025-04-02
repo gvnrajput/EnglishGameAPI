@@ -1,7 +1,9 @@
 ﻿using EnglishGameAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Concurrent;
 using System.IO;
 using System.Text.Json;
+using System.Threading;
 
 namespace EnglishGameAPI.Controllers
 {
@@ -9,34 +11,46 @@ namespace EnglishGameAPI.Controllers
     public class QuestionsController : Controller
     {
         private const string _questionsFilePath = "Models/questions.json";
+        private static List<Question> _questions = new List<Question>();
+        private static readonly ReaderWriterLockSlim _lock = new ReaderWriterLockSlim();
+
+        // Static constructor to load data once at startup
+        static QuestionsController()
+        {
+            LoadQuestionsFromFile();
+        }
 
         [HttpGet("GetQuestions")]
         public IActionResult GetQuestions(QuestionType type, QuestionLevel level)
         {
             try
             {
-                var questions = LoadQuestions();
-                var filteredQuestions = questions
-                    .Where(q => (type == QuestionType.All || q.Type == type) &&
-                                 (level == QuestionLevel.All || q.Level == level));
+                _lock.EnterReadLock();
+                var filteredQuestions = _questions
+                    .Where(q => q.Type == type && q.Level == level)
+                    .OrderBy(q => q.SortOrder)
+                    .Take(5)
+                    .Select(q => new
+                    {
+                        q.Type,
+                        q.QuestionId,
+                        q.QuestionText,
+                        q.Options,
+                        q.Answer,
+                        q.SortOrder
+                    })
+                    .ToList();
 
-                if (!filteredQuestions.Any())
+                if (filteredQuestions.Count == 0)
                 {
                     return NotFound($"No questions found for Type: {type} and Level: {level}");
                 }
 
-                // Return all matching questions
-                return Ok(filteredQuestions.Select(q => new
-                {
-                    QuestionId = q.QuestionId,
-                    QuestionText = q.QuestionText,
-                    Options = q.Options,
-                    Answer = q.Answer
-                }));
+                return Ok(filteredQuestions);
             }
-            catch (Exception ex)
+            finally
             {
-                return StatusCode(500, $"An error occurred: {ex.Message}");
+                _lock.ExitReadLock();
             }
         }
 
@@ -45,21 +59,24 @@ namespace EnglishGameAPI.Controllers
         {
             if (question == null)
             {
-                return BadRequest("Invalid question data provided.");
+                return BadRequest("Invalid question data.");
             }
 
+            _lock.EnterWriteLock();
             try
             {
-                var questions = LoadQuestions();
-                question.QuestionId = questions.Any() ? questions.Max(q => q.QuestionId) + 1 : 1; // Assign unique ID
-                questions.Add(question);
-                SaveQuestions(questions);
-
+                question.QuestionId = _questions.Any() ? _questions.Max(q => q.QuestionId) + 1 : 1;
+                _questions.Add(question);
+                SaveQuestionsToFile();
                 return Ok(new { message = "Question added successfully." });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"An error occurred: {ex.Message}");
+                return StatusCode(500, $"Error adding question: {ex.Message}");
+            }
+            finally
+            {
+                _lock.ExitWriteLock();
             }
         }
 
@@ -68,17 +85,16 @@ namespace EnglishGameAPI.Controllers
         {
             if (question == null)
             {
-                return BadRequest("Invalid question data provided.");
+                return BadRequest("Invalid question data.");
             }
 
+            _lock.EnterWriteLock();
             try
             {
-                var questions = LoadQuestions();
-                var existingQuestion = questions.FirstOrDefault(q => q.QuestionId == id);
-
+                var existingQuestion = _questions.FirstOrDefault(q => q.QuestionId == id);
                 if (existingQuestion == null)
                 {
-                    return NotFound($"Question with ID {id} not found.");
+                    return NotFound($"Question ID {id} not found.");
                 }
 
                 existingQuestion.QuestionText = question.QuestionText;
@@ -87,30 +103,35 @@ namespace EnglishGameAPI.Controllers
                 existingQuestion.Options = question.Options;
                 existingQuestion.Answer = question.Answer;
 
-                SaveQuestions(questions);
-
+                SaveQuestionsToFile();
                 return Ok(new { message = "Question updated successfully." });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"An error occurred: {ex.Message}");
+                return StatusCode(500, $"Error updating question: {ex.Message}");
             }
-        }
-
-        private List<Question> LoadQuestions()
-        {
-            if (!System.IO.File.Exists(_questionsFilePath))
+            finally
             {
-                return new List<Question>(); // Return empty list if file doesn't exist
+                _lock.ExitWriteLock();
             }
-
-            string jsonData = System.IO.File.ReadAllText(_questionsFilePath);
-            return JsonSerializer.Deserialize<List<Question>>(jsonData) ?? new List<Question>();
         }
 
-        private void SaveQuestions(List<Question> questions)
+        private static void LoadQuestionsFromFile()
         {
-            string jsonData = JsonSerializer.Serialize(questions);
+            if (System.IO.File.Exists(_questionsFilePath))
+            {
+                string jsonData = System.IO.File.ReadAllText(_questionsFilePath);
+                _questions = JsonSerializer.Deserialize<List<Question>>(jsonData) ?? new List<Question>();
+            }
+            else
+            {
+                _questions = new List<Question>();
+            }
+        }
+
+        private static void SaveQuestionsToFile()
+        {
+            string jsonData = JsonSerializer.Serialize(_questions);
             System.IO.File.WriteAllText(_questionsFilePath, jsonData);
         }
     }

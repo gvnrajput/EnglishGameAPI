@@ -2,19 +2,19 @@
 {
     public enum QuestionType
     {
-        All = 1,
-        Synonym = 2,
-        Antonym = 3,
-        FillInTheBlanks = 4
+        Synonym = 1,
+        Antonym = 2,
+        FillInTheBlanks = 3,
+        Idioms = 4
     }
 
     public enum QuestionLevel
     {
-        All = 1,
-        Beginner = 2,
-        Intermediate = 3,
-        Expert = 4
-
+        Level1 = 1,
+        Level2 = 2,
+        Level3 = 3,
+        Level4 = 4,
+        Level5 = 5
     }
     public class Question
     {
@@ -24,5 +24,6 @@
         public string QuestionText { get; set; }
         public List<string> Options { get; set; }
         public string Answer { get; set; }
+        public int SortOrder { get; set; }
     }
 }

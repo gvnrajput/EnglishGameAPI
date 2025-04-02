@@ -3,80 +3,200 @@
     "QuestionId": 1,
     "Type": 1,
     "Level": 1,
-    "QuestionText": "What is a synonym for 'happy'?",
+    "QuestionText": "happy",
     "Options": [ "Sad", "Joyful", "Angry", "Tired" ],
     "Answer": "Joyful"
   },
   {
     "QuestionId": 2,
-    "Type": 2,
-    "Level": 2,
-    "QuestionText": "What is the antonym of 'hot'?",
-    "Options": [ "Warm", "Cold", "Cool", "Chilly" ],
-    "Answer": "Cold"
+    "Type": 1,
+    "Level": 1,
+    "QuestionText": "big",
+    "Options": [ "Small", "Large", "Tiny", "Little" ],
+    "Answer": "Large"
   },
   {
     "QuestionId": 3,
-    "Type": 3,
-    "Level": 3,
-    "QuestionText": "The quick brown fox ___ over the lazy dog.",
-    "Options": [ "jumps", "jumped", "jumping", "jump" ],
-    "Answer": "jumped"
+    "Type": 1,
+    "Level": 1,
+    "QuestionText": "fast",
+    "Options": [ "Quick", "Slow", "Rapid", "Lazy" ],
+    "Answer": "Quick"
   },
   {
     "QuestionId": 4,
     "Type": 1,
     "Level": 1,
-    "QuestionText": "What is a synonym for 'big'?",
-    "Options": [ "Small", "Large", "Tiny", "Little" ],
-    "Answer": "Large"
+    "QuestionText": "smart",
+    "Options": [ "Dull", "Intelligent", "Foolish", "Slow" ],
+    "Answer": "Intelligent"
   },
   {
     "QuestionId": 5,
-    "Type": 2,
-    "Level": 2,
-    "QuestionText": "What is the antonym of 'fast'?",
-    "Options": [ "Quick", "Swift", "Slow", "Rapid" ],
-    "Answer": "Slow"
+    "Type": 1,
+    "Level": 1,
+    "QuestionText": "rich",
+    "Options": [ "Poor", "Wealthy", "Broke", "Needy" ],
+    "Answer": "Wealthy"
   },
   {
     "QuestionId": 6,
-    "Type": 3,
-    "Level": 3,
-    "QuestionText": "He ___ to the store to buy some milk.",
-    "Options": [ "go", "goes", "went", "going" ],
-    "Answer": "went"
+    "Type": 2,
+    "Level": 1,
+    "QuestionText": "hot",
+    "Options": [ "Cold", "Warm", "Boiling", "Mild" ],
+    "Answer": "Cold"
   },
   {
     "QuestionId": 7,
-    "Type": 1,
+    "Type": 2,
     "Level": 1,
-    "QuestionText": "What is a synonym for 'good'?",
-    "Options": [ "Bad", "Excellent", "Terrible", "Worst" ],
-    "Answer": "Excellent"
+    "QuestionText": "up",
+    "Options": [ "Down", "Above", "High", "Elevated" ],
+    "Answer": "Down"
   },
   {
     "QuestionId": 8,
     "Type": 2,
-    "Level": 2,
-    "QuestionText": "What is the antonym of 'happy'?",
-    "Options": [ "Sad", "Glad", "Cheerful", "Joyful" ],
-    "Answer": "Sad"
+    "Level": 1,
+    "QuestionText": "light",
+    "Options": [ "Dark", "Bright", "Heavy", "Luminous" ],
+    "Answer": "Dark"
   },
   {
     "QuestionId": 9,
-    "Type": 3,
-    "Level": 3,
-    "QuestionText": "She ___ a beautiful song at the concert.",
-    "Options": [ "sing", "sings", "sang", "singing" ],
-    "Answer": "sang"
+    "Type": 2,
+    "Level": 1,
+    "QuestionText": "begin",
+    "Options": [ "Start", "End", "Commence", "Initiate" ],
+    "Answer": "End"
   },
   {
     "QuestionId": 10,
-    "Type": 1,
+    "Type": 2,
     "Level": 1,
-    "QuestionText": "What is a synonym for 'old'?",
-    "Options": [ "New", "Young", "Ancient", "Modern" ],
-    "Answer": "Ancient"
+    "QuestionText": "full",
+    "Options": [ "Empty", "Loaded", "Complete", "Whole" ],
+    "Answer": "Empty"
+  },
+  {
+    "QuestionId": 11,
+    "Type": 4,
+    "Level": 1,
+    "QuestionText": "Break a leg",
+    "Options": [ "Good luck", "Injury", "Running", "Jumping" ],
+    "Answer": "Good luck"
+  },
+  {
+    "QuestionId": 12,
+    "Type": 4,
+    "Level": 1,
+    "QuestionText": "Piece of cake",
+    "Options": [ "Easy task", "Dessert", "Baking", "Challenge" ],
+    "Answer": "Easy task"
+  },
+  {
+    "QuestionId": 13,
+    "Type": 4,
+    "Level": 1,
+    "QuestionText": "Hit the sack",
+    "Options": [ "Sleep", "Fight", "Store", "Cook" ],
+    "Answer": "Sleep"
+  },
+  {
+    "QuestionId": 14,
+    "Type": 4,
+    "Level": 1,
+    "QuestionText": "Cost an arm and a leg",
+    "Options": [ "Expensive", "Free", "Medical", "Fashion" ],
+    "Answer": "Expensive"
+  },
+  {
+    "QuestionId": 15,
+    "Type": 4,
+    "Level": 1,
+    "QuestionText": "Spill the beans",
+    "Options": [ "Reveal secret", "Cook", "Clean", "Grocery" ],
+    "Answer": "Reveal secret"
+  },
+  {
+    "QuestionId": 16,
+    "Type": 3,
+    "Level": 1,
+    "QuestionText": "I ___ to school yesterday.",
+    "Options": [ "go", "went", "going", "gone" ],
+    "Answer": "went"
+  },
+  {
+    "QuestionId": 17,
+    "Type": 3,
+    "Level": 1,
+    "QuestionText": "She ___ reading a book.",
+    "Options": [ "is", "am", "are", "be" ],
+    "Answer": "is"
+  },
+  {
+    "QuestionId": 18,
+    "Type": 3,
+    "Level": 1,
+    "QuestionText": "We ___ pizza every Friday.",
+    "Options": [ "eat", "ate", "eaten", "eating" ],
+    "Answer": "eat"
+  },
+  {
+    "QuestionId": 19,
+    "Type": 3,
+    "Level": 1,
+    "QuestionText": "They ___ football now.",
+    "Options": [ "play", "plays", "playing", "are playing" ],
+    "Answer": "are playing"
+  },
+  {
+    "QuestionId": 20,
+    "Type": 3,
+    "Level": 1,
+    "QuestionText": "He ___ his homework yet.",
+    "Options": [ "didn't finish", "doesn't finish", "isn't finishing", "won't finish" ],
+    "Answer": "didn't finish"
+  },
+  {
+    "QuestionId": 21,
+    "Type": 1,
+    "Level": 2,
+    "QuestionText": "abundant",
+    "Options": [ "Scarce", "Plentiful", "Rare", "Limited" ],
+    "Answer": "Plentiful"
+  },
+  {
+    "QuestionId": 22,
+    "Type": 1,
+    "Level": 2,
+    "QuestionText": "conceal",
+    "Options": [ "Hide", "Reveal", "Expose", "Show" ],
+    "Answer": "Hide"
+  },
+  {
+    "QuestionId": 23,
+    "Type": 1,
+    "Level": 2,
+    "QuestionText": "diligent",
+    "Options": [ "Lazy", "Hardworking", "Careless", "Slow" ],
+    "Answer": "Hardworking"
+  },
+  {
+    "QuestionId": 24,
+    "Type": 1,
+    "Level": 2,
+    "QuestionText": "fragile",
+    "Options": [ "Strong", "Delicate", "Tough", "Durable" ],
+    "Answer": "Delicate"
+  },
+  {
+    "QuestionId": 25,
+    "Type": 1,
+    "Level": 2,
+    "QuestionText": "meticulous",
+    "Options": [ "Careless", "Detailed", "Sloppy", "Rushed" ],
+    "Answer": "Detailed"
   }
 ]
